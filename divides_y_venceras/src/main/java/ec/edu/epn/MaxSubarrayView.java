@@ -12,7 +12,7 @@ public class MaxSubarrayView {
     private Label stepLabel;
     private Button calcButton, nextButton, prevButton;
 
-    public void start(Stage primaryStage, MaxSubarrayController controller) {
+    public void start(@SuppressWarnings("exports") Stage primaryStage, MaxSubarrayController controller) {
         primaryStage.setTitle("Máxima Suma de Subarreglo (Divide y Conquista) - Paso a Paso");
 
         inputField = new TextField();
