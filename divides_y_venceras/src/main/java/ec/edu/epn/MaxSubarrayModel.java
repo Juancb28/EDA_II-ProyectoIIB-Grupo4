@@ -21,6 +21,7 @@ public class MaxSubarrayModel {
     public List<Step> getSteps() {
         return steps;
     }
+
     public int maxSubArray(int[] arr) {
         steps = new ArrayList<>();
         if (arr == null || arr.length == 0) return 0;

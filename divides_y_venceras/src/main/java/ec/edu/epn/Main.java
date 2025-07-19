@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     @Override
-    public void start(@SuppressWarnings("exports") Stage primaryStage) {
+    public void start(Stage primaryStage) {
         MaxSubarrayModel model = new MaxSubarrayModel();
         MaxSubarrayView view = new MaxSubarrayView();
         MaxSubarrayController controller = new MaxSubarrayController(model, view);

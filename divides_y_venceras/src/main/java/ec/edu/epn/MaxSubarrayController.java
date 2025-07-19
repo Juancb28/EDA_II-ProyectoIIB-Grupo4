@@ -30,9 +30,10 @@ public class MaxSubarrayController {
             if (!steps.isEmpty()) {
                 view.showStep(steps.get(stepIdx), arr, stepIdx, steps.size());
                 updateStepButtons();
+                view.updateProgressBar((double)(stepIdx + 1) / steps.size());
             }
         } catch (Exception e) {
-            view.showError("Entrada inválida. Por favor, usa números enteros separados por espacios.");
+            view.showError("Entrada inválida. Usa números enteros separados por espacios.");
         }
     }
 
@@ -41,6 +42,7 @@ public class MaxSubarrayController {
         stepIdx++;
         view.showStep(steps.get(stepIdx), arr, stepIdx, steps.size());
         updateStepButtons();
+        view.updateProgressBar((double)(stepIdx + 1) / steps.size());
     }
 
     public void handlePrevStep() {
@@ -48,6 +50,7 @@ public class MaxSubarrayController {
         stepIdx--;
         view.showStep(steps.get(stepIdx), arr, stepIdx, steps.size());
         updateStepButtons();
+        view.updateProgressBar((double)(stepIdx + 1) / steps.size());
     }
 
     private void updateStepButtons() {
