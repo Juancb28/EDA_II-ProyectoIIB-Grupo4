@@ -19,6 +19,7 @@ public class MaxSubarrayView {
     private RecursionTreePane recursionTreePane;
     private Label costLabel;
 
+
     /**
      * Inicializa y muestra la interfaz principal de la aplicación.
      * Configura los estilos, eventos y disposición de los controles.
@@ -148,6 +149,7 @@ public class MaxSubarrayView {
         HBox.setHgrow(stepBox, Priority.ALWAYS);
         HBox.setHgrow(treeBox, Priority.ALWAYS);
 
+
         costLabel = new Label();
         costLabel.setStyle("-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #5F7470; -fx-background-color: #E0E2DB; -fx-padding: 8 16; -fx-background-radius: 8; -fx-alignment: center-right;");
         costLabel.setVisible(false);
@@ -160,6 +162,10 @@ public class MaxSubarrayView {
 
         VBox layout = new VBox(10,
                 topBar,
+
+        VBox layout = new VBox(20,
+                titleLabel,
+
                 new Label("Introduce números enteros separados por espacios:") {{ setStyle("-fx-text-fill: #5F7470; -fx-font-size: 15px;"); }},
                 inputField,
                 buttonBox,
@@ -262,6 +268,7 @@ public class MaxSubarrayView {
         stepArea.setText("");
     }
 
+
     /**
      * Muestra el coste computacional en milisegundos (con 3 decimales) en la esquina superior derecha.
      * @param nanos Tiempo en nanosegundos
@@ -273,4 +280,5 @@ public class MaxSubarrayView {
         costLabel.applyCss();
         costLabel.layout();
     }
+
 }
