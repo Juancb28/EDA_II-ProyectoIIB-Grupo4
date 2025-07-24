@@ -44,7 +44,10 @@ public class MaxSubarrayController {
             }
             arr = new int[validNumbers.size()];
             for (int i = 0; i < validNumbers.size(); i++) arr[i] = validNumbers.get(i);
+            long start = System.nanoTime();
             int result = model.maxSubArray(arr);
+            long end = System.nanoTime();
+            view.showCost(end - start);
             view.showResult(result);
             // Mostrar pasos y árbol como antes
             steps = model.getSteps();

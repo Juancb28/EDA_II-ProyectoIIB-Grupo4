@@ -17,6 +17,7 @@ public class MaxSubarrayView {
     private TextArea stepArea;
     private Button calcButton, nextButton, prevButton;
     private RecursionTreePane recursionTreePane;
+    private Label costLabel;
 
     /**
      * Inicializa y muestra la interfaz principal de la aplicación.
@@ -147,8 +148,18 @@ public class MaxSubarrayView {
         HBox.setHgrow(stepBox, Priority.ALWAYS);
         HBox.setHgrow(treeBox, Priority.ALWAYS);
 
-        VBox layout = new VBox(20,
-                titleLabel,
+        costLabel = new Label();
+        costLabel.setStyle("-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #5F7470; -fx-background-color: #E0E2DB; -fx-padding: 8 16; -fx-background-radius: 8; -fx-alignment: center-right;");
+        costLabel.setVisible(false);
+        HBox topBar = new HBox();
+        topBar.setSpacing(12);
+        topBar.setPadding(new Insets(16, 24, 0, 24));
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+        topBar.getChildren().addAll(titleLabel, spacer, costLabel);
+
+        VBox layout = new VBox(10,
+                topBar,
                 new Label("Introduce números enteros separados por espacios:") {{ setStyle("-fx-text-fill: #5F7470; -fx-font-size: 15px;"); }},
                 inputField,
                 buttonBox,
@@ -249,5 +260,17 @@ public class MaxSubarrayView {
      */
     public void clearStep() {
         stepArea.setText("");
+    }
+
+    /**
+     * Muestra el coste computacional en milisegundos (con 3 decimales) en la esquina superior derecha.
+     * @param nanos Tiempo en nanosegundos
+     */
+    public void showCost(long nanos) {
+        double ms = nanos / 1_000_000.0;
+        costLabel.setText(String.format("Coste: %.3f ms", ms));
+        if (!costLabel.isVisible()) costLabel.setVisible(true);
+        costLabel.applyCss();
+        costLabel.layout();
     }
 }
